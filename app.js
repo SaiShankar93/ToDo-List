@@ -2,7 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
-
+const hostname = "0.0.0.0";
+const port = 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.set('view engine','ejs');
@@ -30,6 +31,6 @@ app.post("/",function(req,res){
     res.redirect('/');
 });
 
-app.listen(process.env.PORT || 3000,function(){
+app.listen(port,hostname ,process.env.PORT || 3000,function(){
     console.log("Server Started at port 3000");
 });
